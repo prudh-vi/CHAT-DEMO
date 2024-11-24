@@ -1,12 +1,15 @@
 # SafSoc: Smart Message Safety Analysis Platform
 
-# Demo 
 
-https://github.com/user-attachments/assets/59bfb401-075d-487a-9423-2f5ff28be8d2
 
 ## 📋 Overview
 
 SafSoc is an intelligent message safety analysis platform built with React and Express.js that leverages OpenAI's API to evaluate message content for safety concerns in real-time. The platform provides immediate feedback on potentially unsafe content, helping users maintain respectful and secure communication.
+
+# Demo 
+
+https://github.com/user-attachments/assets/59bfb401-075d-487a-9423-2f5ff28be8d2
+
 
 ## 🌟 Key Features
 
