@@ -31,7 +31,7 @@ const content = [
         title: "Extension Integration",
         description: "Our browser extension brings AI safety to all your chats...",
         buttonText: "Install Extension",
-        buttonAction: (navigate: NavigateFunction) => navigate('/extension'),
+        buttonAction: () => window.open('https://github.com/prudh-vi/Safsoc/tree/main/extension', '_blank'),
         content: (
           <div className="h-full w-full flex items-center justify-center text-white">
             <img
