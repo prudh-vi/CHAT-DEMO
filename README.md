@@ -8,7 +8,7 @@ SafSoc is an intelligent message safety analysis platform built with React and E
 
 # Demo (Webpage)
 
-https://github.com/user-attachments/assets/59bfb401-075d-487a-9423-2f5ff28be8d2
+https://github.com/user-attachments/assets/d3d33548-c0c8-4c55-bb23-0b62a19d19c4
 
 # Demo(Extension)
 
