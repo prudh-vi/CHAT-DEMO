@@ -6,7 +6,7 @@ A React and Express.js application that evaluates the safety of messages using t
 
 - **Message Safety Evaluation**: Checks if a message is safe or unsafe using OpenAI API.
 - **User Feedback**: Displays a red popup with reasons and suggestions for unsafe messages.
-- **Browser Extension (Planned)**: Expands functionality to monitor and flag unsafe messages across all websites.
+- **Browser Extension (Planned)**: Expands functionality to monitor and flag unsafe messages across all websites.([Extension](https://github.com/prudh-vi/Safsoc/tree/main/extension))
 
 ## Tech Stack
 
