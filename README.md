@@ -1,4 +1,4 @@
-# SafSoc: Smart Message Safety Analysis Platform
+# SafSoc: Message Safety Analysis Platform
 
 
 
