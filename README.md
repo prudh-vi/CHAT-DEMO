@@ -26,6 +26,19 @@ SafSoc is an intelligent message safety analysis platform built with React and E
 - **Quick Toggle**: Easily enable/disable the extension as needed
 - **Seamless Integration**: Works naturally with existing website interfaces
 
+## 🔄 Workflow
+
+![SafSoc Workflow](https://github.com/prudh-vi/Safsoc/blob/main/flow.png)
+
+The diagram above illustrates the basic workflow of SafSoc:
+1. User enters a message
+2. Message is sent to the backend
+3. OpenAI API analyzes the message content
+4. If safe, message is displayed in chat
+5. If unsafe, a red warning popup appears with feedback
+6. User can edit and resubmit the message
+
+
 ## 🛠️ Technical Architecture
 
 ### Frontend (React.js)
@@ -151,17 +164,6 @@ The application implements comprehensive error handling:
 - Efficient state management
 - Minimized API requests
 
-## 🔄 Workflow
-
-![SafSoc Workflow](https://github.com/prudh-vi/Safsoc/blob/main/flow.png)
-
-The diagram above illustrates the basic workflow of SafSoc:
-1. User enters a message
-2. Message is sent to the backend
-3. OpenAI API analyzes the message content
-4. If safe, message is displayed in chat
-5. If unsafe, a red warning popup appears with feedback
-6. User can edit and resubmit the message
 
 ## 🤝 Contributing
 
