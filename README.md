@@ -17,13 +17,7 @@ A React and Express.js application that evaluates the safety of messages using t
 
 ## Workflow
 
-1. Users compose a message in the React frontend.
-2. The message is sent to the Express.js backend via `fetch`.
-3. The backend forwards the message to the OpenAI API for analysis.
-4. Based on the response:
-   - If **safe**, the message is processed normally.
-   - If **unsafe**, a red popup alerts the user with reasons and suggestions.
-5. Logs (optional) are maintained to improve the system (excluding sensitive data).
+![Basic  Workflow](https://ibb.co/g4CXpDd "Optional Screenshot Title")
 
 ## Installation
 
