@@ -29,7 +29,7 @@ const content = [
     },
     {
         title: "Extension Integration",
-        description: "Our browser extension brings AI safety to all your chats and it works across all websites.",
+        description: "Our browser extension brings AI safety to all your chats, ensuring secure conversations, and it works seamlessly across all websites.",
         buttonText: "Install Extension",
         buttonAction: () => window.open('https://github.com/prudh-vi/Safsoc/tree/main/extension', '_blank'),
         content: (
