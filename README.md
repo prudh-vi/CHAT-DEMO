@@ -36,5 +36,5 @@ A React and Express.js application that evaluates the safety of messages using t
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/safsoc.git
+   git clone https://github.com/prudh-vi/safsoc.git
    cd safsoc
