@@ -72,9 +72,7 @@ export const StickyScroll = ({
       style={{
         scrollbarWidth: 'none',  // Firefox
         msOverflowStyle: 'none',  // IE and Edge
-        '&::-webkit-scrollbar': {  // Chrome, Safari, newer versions of Opera
-          display: 'none'
-        }
+        
       }}
     >
       <div className="div relative flex items-start px-4">
