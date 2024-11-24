@@ -1,6 +1,6 @@
 # SafSoc: Smart Message Safety Analysis Platform
 
-![SafSoc Logo](https://github.com/prudh-vi/Safsoc/blob/main/flow.png)
+
 
 ## 📋 Overview
 
@@ -153,15 +153,15 @@ The application implements comprehensive error handling:
 
 ## 🔄 Workflow
 
-```mermaid
-graph TD
-    A[User Input] -->|Submit Message| B{Safety Check}
-    B -->|Safe| C[Display Message]
-    B -->|Unsafe| D[Show Red Warning]
-    D -->|Edit Message| A
-    C -->|Success| E[Add to Chat]
-    C -->|Error| F[Show Error Message]
-```
+![SafSoc Workflow](https://github.com/prudh-vi/Safsoc/blob/main/flow.png)
+
+The diagram above illustrates the basic workflow of SafSoc:
+1. User enters a message
+2. Message is sent to the backend
+3. OpenAI API analyzes the message content
+4. If safe, message is displayed in chat
+5. If unsafe, a red warning popup appears with feedback
+6. User can edit and resubmit the message
 
 ## 🤝 Contributing
 
