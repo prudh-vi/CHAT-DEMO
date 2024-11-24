@@ -83,13 +83,9 @@ cd safsoc
 npm install
 ```
 
-3. **Environment Setup**
-```bash
-# Frontend (.env)
-REACT_APP_API_URL=https://repo-ecaf.onrender.com/
-```
 
-4. **Start Development Server**
+
+3. **Start Development Server**
 ```bash
 # Start frontend
 npm run dev
