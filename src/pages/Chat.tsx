@@ -1,4 +1,4 @@
-
+"use client"
 
 import { useState, useEffect, useRef, FormEvent } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -7,7 +7,6 @@ import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { HomeIcon, LogOut, Menu, Send, Trash2 } from 'lucide-react'
 
-// Add a type for message structure
 type Message = {
   id?: string
   message: string
@@ -21,6 +20,7 @@ export default function Chat() {
   const [lastMessageId, setLastMessageId] = useState<number>(0)
   const [messages, setMessages] = useState<Message[]>([])
   const [isFetching, setIsFetching] = useState(false)
+  const [isSending, setIsSending] = useState(false)
   const messageCache = useRef(new Set<string>())
 
   const displayWarning = (warning: string): void => {
@@ -83,11 +83,17 @@ export default function Chat() {
 
   const handleSendMessage = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
+    if (isSending) return // Prevent multiple sends while a send is in progress
+
+    setIsSending(true)
     const form = e.target as HTMLFormElement
     const messageInput = form.elements.namedItem("messageInput") as HTMLInputElement
     const message = messageInput.value.trim()
 
-    if (!message) return
+    if (!message) {
+      setIsSending(false)
+      return
+    }
 
     const newMessage: Message = {
       id: `user-${Date.now()}`,
@@ -119,6 +125,8 @@ export default function Chat() {
     } catch (error) {
       console.error("Error sending message:", error)
       displayWarning("Failed to send message. Please try again.")
+    } finally {
+      setIsSending(false)
     }
   }
 
@@ -226,9 +234,10 @@ export default function Chat() {
               variant="default"
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90"
+              disabled={isSending}
             >
               <Send className="mr-2 h-4 w-4" />
-              Send
+              {isSending ? 'Sending...' : 'Send'}
             </Button>
           </form>
         </div>
@@ -236,4 +245,3 @@ export default function Chat() {
     </div>
   )
 }
-
