@@ -42,8 +42,8 @@ The diagram above illustrates the basic workflow of SafSoc:
 1. User enters a message
 2. Message is sent to the backend
 3. OpenAI API analyzes the message content
-4. If safe, message is displayed in chat
-5. If unsafe, a red warning popup appears with feedback
+4. If safe, no red message is displayed
+5. If unsafe, a red warning popup appears with feedback and suggestions
 6. User can edit and resubmit the message
 
 
