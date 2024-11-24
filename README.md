@@ -1,54 +1,40 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# Safe Message Checker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React and Express.js application that evaluates the safety of messages using the OpenAI API. Unsafe messages are flagged with a **red popup** providing reasons and suggestions for revision. Optionally, the same logic can be applied as a browser extension for use across all websites.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Message Safety Evaluation**: Checks if a message is safe or unsafe using OpenAI API.
+- **User Feedback**: Displays a red popup with reasons and suggestions for unsafe messages.
+- **Browser Extension (Planned)**: Expands functionality to monitor and flag unsafe messages across all websites.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend**: React.js
+- **Backend**: Express.js ([Backend Repository](https://github.com/prudh-vi/repo))
+- **API**: OpenAI API
+- **Communication**: Fetch API
 
-- Configure the top-level `parserOptions` property like this:
+## Workflow
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Users compose a message in the React frontend.
+2. The message is sent to the Express.js backend via `fetch`.
+3. The backend forwards the message to the OpenAI API for analysis.
+4. Based on the response:
+   - If **safe**, the message is processed normally.
+   - If **unsafe**, a red popup alerts the user with reasons and suggestions.
+5. Logs (optional) are maintained to improve the system (excluding sensitive data).
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Installation
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Prerequisites
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-=======
-# CHAT-DEMO
->>>>>>> d55065b4f9c61f4d41567ece6362487ed1b8d87a
+- Node.js and npm installed.
+- OpenAI API key.
+
+### Steps
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/safsoc.git
+   cd safsoc
