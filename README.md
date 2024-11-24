@@ -1,4 +1,4 @@
-# Safe Message Checker
+# SafeSoc
 
 A React and Express.js application that evaluates the safety of messages using the OpenAI API. Unsafe messages are flagged with a **red popup** providing reasons and suggestions for revision. Optionally, the same logic can be applied as a browser extension for use across all websites.
 
