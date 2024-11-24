@@ -1,11 +1,12 @@
 import { StickyScroll } from "../components/ui/sticky-scroll-reveal";
 
-
 const content = [
     {
         title: "Direct Chat",
         description:
           "Real-time AI protection against sensitive data exposure and offensive content. Chat freely in a secure, respectful environment.",
+        buttonText: "Try Chat",
+        buttonAction: () => window.location.href = '/chat',
         content: (
           <div className="h-full w-full flex items-center justify-center text-white">
             <img
@@ -17,11 +18,13 @@ const content = [
             />
           </div>
         ),
-      },
-      {
+    },
+    {
         title: "Extension Integration",
         description:
           "Our browser extension brings AI safety to all your chats. From social media to work platforms, automatically guard against sensitive information and inappropriate content wherever you communicate online.",
+        buttonText: "Install Extension",
+        buttonAction: () => window.open('https://github.com/prudh-vi/Safsoc/tree/main/extension', '_blank'),
         content: (
           <div className="h-full w-full flex items-center justify-center text-white">
             <img
@@ -33,10 +36,9 @@ const content = [
             />
           </div>
         ),
-      }
-      
-
+    }
 ];
+
 export function Card() {
   return (
     <div className="p-10 bg-black text-white">

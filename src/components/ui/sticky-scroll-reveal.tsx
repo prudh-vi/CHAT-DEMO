@@ -13,6 +13,8 @@ export const StickyScroll = ({
     title: string;
     description: string;
     content?: React.ReactNode | any;
+    buttonText?: string;
+    buttonAction?: () => void;
   }[];
   contentClassName?: string;
 }) => {
@@ -40,7 +42,6 @@ export const StickyScroll = ({
   });
 
   const backgroundColors = [
-   
     "var(--black)",
     "var(--neutral-900)",
   ];
@@ -58,10 +59,6 @@ export const StickyScroll = ({
     setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
   }, [activeCard]);
 
-  const handleStartNow = () => {
-    window.location.href = '/chat';
-  };
-
   return (
     <motion.div
       animate={{
@@ -72,7 +69,6 @@ export const StickyScroll = ({
       style={{
         scrollbarWidth: 'none',  // Firefox
         msOverflowStyle: 'none',  // IE and Edge
-        
       }}
     >
       <div className="div relative flex items-start px-4">
@@ -100,9 +96,13 @@ export const StickyScroll = ({
                 className="text-kg text-slate-300 max-w-sm mt-10"
               >
                 {item.description}
-                <div className="mt-2">
-                  <Button onClick={handleStartNow}>Start Now</Button>
-                </div>
+                {(item.buttonText || item.buttonAction) && (
+                  <div className="mt-2">
+                    <Button onClick={item.buttonAction}>
+                      {item.buttonText || "Start Now"}
+                    </Button>
+                  </div>
+                )}
               </motion.p>
             </div>
           ))}
@@ -121,5 +121,3 @@ export const StickyScroll = ({
     </motion.div>
   );
 };
-
-// Add this CSS to your global styles or a CSS module

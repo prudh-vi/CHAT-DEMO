@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { HomeIcon, LogOut, Menu, Send, Trash2 } from 'lucide-react'
 
-type Message = {
+interface Message {
   id?: string
   message: string
   user: string
@@ -32,7 +32,7 @@ export default function Chat() {
       serverResponse: true,
       timestamp: Date.now(),
     }
-    setMessages((prevMessages) => [...prevMessages, warningMessage])
+    setMessages((prevMessages: Message[]) => [...prevMessages, warningMessage])
   }
 
   const createMessageHash = (msg: Message): string => {
@@ -50,7 +50,7 @@ export default function Chat() {
       const data = await response.json()
 
       if (data.messages && data.messages.length > 0) {
-        const newMessages = data.messages
+        const newMessages: Message[] = data.messages
           .map((msg: { message: string; user: string; timestamp?: number }) => ({
             id: `${msg.user}-${msg.timestamp || Date.now()}`,
             message: msg.message,
@@ -69,7 +69,7 @@ export default function Chat() {
           })
 
         if (newMessages.length > 0) {
-          setMessages((prevMessages) => [...prevMessages, ...newMessages])
+          setMessages((prevMessages: Message[]) => [...prevMessages, ...newMessages])
           setLastMessageId(data.lastMessageId)
         }
       }
@@ -106,7 +106,7 @@ export default function Chat() {
     const messageHash = createMessageHash(newMessage)
     if (!messageCache.current.has(messageHash)) {
       messageCache.current.add(messageHash)
-      setMessages((prevMessages) => [...prevMessages, newMessage])
+      setMessages((prevMessages: Message[]) => [...prevMessages, newMessage])
     }
 
     messageInput.value = ""
@@ -156,8 +156,8 @@ export default function Chat() {
   }, [lastMessageId])
 
   return (
-    <div className="h-screen bg-background flex flex-col">
-      <nav className="bg-primary text-primary-foreground p-4 flex justify-between items-center">
+    <div className="min-h-screen bg-background flex flex-col p-6">
+      <nav className="bg-primary text-primary-foreground p-4 flex justify-between items-center rounded-t-xl mb-6">
         <Button
           variant="ghost"
           className="text-primary-foreground hover:text-primary-foreground/80"
@@ -172,20 +172,20 @@ export default function Chat() {
         </Button>
       </nav>
 
-      <Card className="flex-1 flex flex-col shadow-lg">
-        <div className="p-4 border-b flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <Avatar className="h-10 w-10 sm:h-12 sm:w-12">
+      <Card className="flex-1 flex flex-col shadow-lg mx-auto w-full max-w-5xl rounded-xl">
+        <div className="p-6 border-b flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <Avatar className="h-12 w-12 sm:h-14 sm:w-14">
               <AvatarImage src="/api/placeholder/40/40" alt="User Avatar" />
               <AvatarFallback>Pru</AvatarFallback>
             </Avatar>
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold">Prudhvi</h2>
-              <p className="text-xs sm:text-sm text-muted-foreground">User</p>
+              <h2 className="text-xl sm:text-2xl font-semibold">Prudhvi</h2>
+              <p className="text-sm sm:text-base text-muted-foreground">User</p>
             </div>
           </div>
-          <div className="flex space-x-2">
-            <Button variant="ghost" size="lg">
+          <div className="flex space-x-3">
+            <Button variant="ghost" size="lg" className="hidden sm:flex">
               <Menu className="mr-2 h-4 w-4" />
               <span>Profile</span>
             </Button>
@@ -196,19 +196,19 @@ export default function Chat() {
               className="bg-red-500 text-white hover:bg-red-600"
             >
               <Trash2 className="mr-2 h-4 w-4" />
-              Clear Chat
+              <span className="hidden sm:inline">Clear Chat</span>
             </Button>
           </div>
         </div>
 
-        <div id="messageContainer" className="flex-1 overflow-y-auto p-4 space-y-4">
-          {messages.map((msg, index) => (
+        <div id="messageContainer" className="flex-1 overflow-y-auto p-6 space-y-6">
+          {messages.map((msg: Message, index) => (
             <div
               key={msg.id || index}
               className={`flex flex-col space-y-2 ${msg.isIncoming ? "" : "items-end"}`}
             >
               <div
-                className={`p-3 max-w-[80%] ${
+                className={`p-4 max-w-[50%] ${
                   msg.serverResponse
                     ? "bg-red-500 text-white rounded-2xl rounded-tl-none self-start"
                     : msg.isIncoming
@@ -216,27 +216,27 @@ export default function Chat() {
                     : "bg-primary text-primary-foreground rounded-2xl rounded-tr-none"
                 }`}
               >
-                <p>{msg.message}</p>
+                <p className="text-base">{msg.message}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="border-t bg-background p-4">
-          <form className="flex items-center space-x-2" onSubmit={handleSendMessage}>
+        <div className="border-t bg-background p-6">
+          <form className="flex items-center space-x-4 max-w-4xl mx-auto" onSubmit={handleSendMessage}>
             <Input
               name="messageInput"
               placeholder="Type your message here..."
-              className="flex-1"
+              className="flex-1 text-base"
             />
             <Button
               type="submit"
               variant="default"
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-6"
               disabled={isSending}
             >
-              <Send className="mr-2 h-4 w-4" />
+              <Send className="mr-2 h-5 w-5" />
               {isSending ? 'Sending...' : 'Send'}
             </Button>
           </form>
