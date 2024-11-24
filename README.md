@@ -17,7 +17,7 @@ A React and Express.js application that evaluates the safety of messages using t
 
 ## Workflow
 
-![Basic  Workflow](https://ibb.co/g4CXpDd "Optional Screenshot Title")
+![Basic  Workflow](https://github.com/prudh-vi/Safsoc/blob/main/flow.png "Optional Screenshot Title")
 
 ## Installation
 
