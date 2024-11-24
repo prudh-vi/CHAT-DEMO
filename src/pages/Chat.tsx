@@ -5,8 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { HomeIcon, LogOut, Menu, Send, Trash2 } from 'lucide-react'
-
+import { HomeIcon, LogOut, Send, Trash2 } from 'lucide-react'
 
 interface Message {
   id?: string
@@ -84,7 +83,7 @@ export default function Chat() {
 
   const handleSendMessage = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
-    if (isSending) return // Prevent multiple sends while a send is in progress
+    if (isSending) return
 
     setIsSending(true)
     const form = e.target as HTMLFormElement
@@ -158,20 +157,22 @@ export default function Chat() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col p-6">
-      <nav className="bg-primary text-primary-foreground p-4 flex justify-between items-center rounded-t-xl mb-6">
+      <div className="flex justify-between items-center mb-6">
         <Button
           variant="ghost"
-          className="text-primary-foreground hover:text-primary-foreground/80"
           onClick={() => (window.location.href = "/")}
+          className="bg-primary text-primary-foreground hover:bg-primary/90 px-6"
         >
-          <HomeIcon className="mr-2 h-4 w-4" />
-          <span>Home</span>
+          <HomeIcon className="h-5 w-5 text-green" />
         </Button>
-        <Button variant="destructive" onClick={() => (window.location.href = "/")}>
-          <LogOut className="mr-2 h-4 w-4" />
-          <span>Logout</span>
+        <Button 
+          variant="destructive" 
+          onClick={() => (window.location.href = "/")}
+          className="bg-primary text-primary-foreground hover:bg-primary/90 px-6"
+        >
+          <LogOut className="h-5 w-5" />
         </Button>
-      </nav>
+      </div>
 
       <Card className="flex-1 flex flex-col shadow-lg mx-auto w-full max-w-5xl rounded-xl">
         <div className="p-6 border-b flex items-center justify-between">
@@ -185,21 +186,15 @@ export default function Chat() {
               <p className="text-sm sm:text-base text-muted-foreground">User</p>
             </div>
           </div>
-          <div className="flex space-x-3">
-            <Button variant="ghost" size="lg" className="hidden sm:flex">
-              <Menu className="mr-2 h-4 w-4" />
-              <span>Profile</span>
-            </Button>
-            <Button
-              variant="destructive"
-              size="lg"
-              onClick={handleRemoveHistory}
-              className="bg-red-500 text-white hover:bg-red-600"
-            >
-              <Trash2 className="mr-2 h-4 w-4" />
-              <span className="hidden sm:inline">Clear Chat</span>
-            </Button>
-          </div>
+          <Button
+            variant="destructive"
+            size="lg"
+            onClick={handleRemoveHistory}
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-6"
+          >
+            <Trash2 className="mr-2 h-4 w-4" />
+            <span className="hidden sm:inline">Clear Chat</span>
+          </Button>
         </div>
 
         <div id="messageContainer" className="flex-1 overflow-y-auto p-6 space-y-6">
@@ -211,7 +206,7 @@ export default function Chat() {
               <div
                 className={`p-4 max-w-[50%] ${
                   msg.serverResponse
-                    ? "bg-red-500 text-white rounded-2xl rounded-tl-none self-start"
+                    ? "bg-red-400/30 text-red-500 rounded-2xl rounded-tl-none self-start"
                     : msg.isIncoming
                     ? "bg-muted text-muted-foreground rounded-2xl rounded-tl-none self-start"
                     : "bg-primary text-primary-foreground rounded-2xl rounded-tr-none"
