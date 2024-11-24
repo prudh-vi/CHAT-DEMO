@@ -1,12 +1,20 @@
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { StickyScroll } from "../components/ui/sticky-scroll-reveal";
+
+type ContentItem = {
+  title: string;
+  description: string;
+  content?: React.ReactNode;
+  buttonText?: string;
+  buttonAction: (navigate: NavigateFunction) => void;
+}
 
 const content = [
     {
         title: "Direct Chat",
-        description:
-          "Real-time AI protection against sensitive data exposure and offensive content. Chat freely in a secure, respectful environment.",
-        buttonText: "Try Chat",
-        buttonAction: () => window.location.href = '/chat',
+        description: "Real-time AI protection against sensitive data exposure and offensive content. Chat freely in a secure, respectful environment.",
+        buttonText: "Try Direct Chat",
+        buttonAction: (navigate: NavigateFunction) => navigate('/chat'),
         content: (
           <div className="h-full w-full flex items-center justify-center text-white">
             <img
@@ -21,10 +29,9 @@ const content = [
     },
     {
         title: "Extension Integration",
-        description:
-          "Our browser extension brings AI safety to all your chats. From social media to work platforms, automatically guard against sensitive information and inappropriate content wherever you communicate online.",
+        description: "Our browser extension brings AI safety to all your chats...",
         buttonText: "Install Extension",
-        buttonAction: () => window.open('https://github.com/prudh-vi/Safsoc/tree/main/extension', '_blank'),
+        buttonAction: (navigate: NavigateFunction) => navigate('/extension'),
         content: (
           <div className="h-full w-full flex items-center justify-center text-white">
             <img
@@ -37,12 +44,19 @@ const content = [
           </div>
         ),
     }
-];
+] as ContentItem[];
 
 export function Card() {
+  const navigate = useNavigate();
+  
   return (
     <div className="p-10 bg-black text-white">
-      <StickyScroll content={content} />
+      <StickyScroll 
+        content={content.map(item => ({
+          ...item,
+          buttonAction: () => item.buttonAction(navigate)
+        }))} 
+      />
     </div>
   );
 }

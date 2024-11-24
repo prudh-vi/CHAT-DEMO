@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { HomeIcon, LogOut, Menu, Send, Trash2 } from 'lucide-react'
 
+
 interface Message {
   id?: string
   message: string
