@@ -13,7 +13,7 @@ const content = [
     {
         title: "Direct Chat",
         description: "Real-time AI protection against sensitive data exposure and offensive content. Chat freely in a secure, respectful environment.",
-        buttonText: "Try Direct Chat",
+        buttonText: "Try Chat",
         buttonAction: (navigate: NavigateFunction) => navigate('/chat'),
         content: (
           <div className="h-full w-full flex items-center justify-center text-white">
@@ -29,7 +29,7 @@ const content = [
     },
     {
         title: "Extension Integration",
-        description: "Our browser extension brings AI safety to all your chats...",
+        description: "Our browser extension brings AI safety to all your chats and it works across all websites.",
         buttonText: "Install Extension",
         buttonAction: () => window.open('https://github.com/prudh-vi/Safsoc/tree/main/extension', '_blank'),
         content: (
