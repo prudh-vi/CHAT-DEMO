@@ -31,7 +31,6 @@ https://github.com/user-attachments/assets/cbf89b45-d804-4a21-9f26-6910a1a3daa5
 ### Browser Extension Features
 - **Universal Compatibility**: Works across all major websites (at present it works only on X,LinkedIn,Safsoc)
 - **Context-aware Analysis**: Considers website context when evaluating messages
-- **Quick Toggle**: Easily enable/disable the extension as needed
 - **Seamless Integration**: Works naturally with existing website interfaces
 
 ## 🔄 Workflow
@@ -156,7 +155,7 @@ The application implements comprehensive error handling:
 - Server errors
 - Safety check failures
 
-## ⭐️ Acknowledgments
+## 👥 Acknowledgments
 
 - OpenAI
 - The React and Express.js communities
