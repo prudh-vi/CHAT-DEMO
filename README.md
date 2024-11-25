@@ -52,6 +52,7 @@ The diagram above illustrates the basic workflow of SafSoc:
 - Modern React with Hooks
 - Tailwind CSS for responsive design
 - ShadcnUI components for consistent UI
+- Aceternity UI for certain components
 
 ### Backend (Express.js)
 - RESTful API architecture
