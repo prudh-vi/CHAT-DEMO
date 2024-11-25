@@ -60,12 +60,6 @@ The diagram above illustrates the basic workflow of SafSoc:
 - Message safety analysis
 - Error handling middleware
 
-### AI Integration
-- OpenAI GPT API integration
-- Custom prompt engineering
-- Safety evaluation algorithms
-- Context-aware analysis
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -159,11 +153,10 @@ Response: {
 The application implements comprehensive error handling:
 - Network connectivity issues
 - API rate limiting
-- Invalid input validation
 - Server errors
 - Safety check failures
 
 ## ⭐️ Acknowledgments
 
-- OpenAI team for their powerful API
+- OpenAI
 - The React and Express.js communities
