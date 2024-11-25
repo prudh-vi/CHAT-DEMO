@@ -29,7 +29,7 @@ https://github.com/user-attachments/assets/cbf89b45-d804-4a21-9f26-6910a1a3daa5
 - **Clear Chat**: Option to clear chat history
 
 ### Browser Extension Features
-- **Universal Compatibility**: Works across all major websites(at present it works only on X,LinkedIn,Safsoc)
+- **Universal Compatibility**: Works across all major websites (at present it works only on X,LinkedIn,Safsoc)
 - **Context-aware Analysis**: Considers website context when evaluating messages
 - **Quick Toggle**: Easily enable/disable the extension as needed
 - **Seamless Integration**: Works naturally with existing website interfaces
@@ -104,10 +104,15 @@ npm run dev
 2. Navigate to Extensions
 3. Enable Developer Mode
 4. Load unpacked extension from `/extension` directory
+5. [Extension Source](https://github.com/prudh-vi/Safsoc/tree/main/extension)
 
 ## 📚 API Documentation
 
 ### Message Analysis Endpoint
+
+[Backend Deployment](https://repo-ecaf.onrender.com/)
+
+
 ```typescript
 POST /api/messages
 Body: {
@@ -159,12 +164,6 @@ The application implements comprehensive error handling:
 - Invalid input validation
 - Server errors
 - Safety check failures
-
-## 🔗 Links
-
-- [Backend Repository](https://github.com/prudh-vi/repo)
-- [Backend Deployment](https://repo-ecaf.onrender.com/)
-- [Extension Source](https://github.com/prudh-vi/Safsoc/tree/main/extension)
 
 ## ⭐️ Acknowledgments
 
