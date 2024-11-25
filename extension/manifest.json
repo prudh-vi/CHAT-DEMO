@@ -1,29 +1,31 @@
 {
-    "manifest_version": 3,
-    "name": "Message Safety Monitor",
-    "version": "1.0",
-    "description": "Monitors sent messages for sensitive information",
-    "permissions": [
-      "activeTab"
-    ],
-    "host_permissions": [
-      "http://localhost:5123/*",
-      "https://x.com/*"
-      
-    ],
-    "content_scripts": [
-      {
-        "matches": [
-          "<all_urls>"
-        ],
-        "js": ["content.js"],
-        "run_at": "document_end",
-        "all_frames": true
-      }
-    ],
-    "icons": {
-      "16": "images/icon16.png",
-      "48": "images/icon48.png",
-      "128": "images/icon128.png"
+  "manifest_version": 3,
+  "name": "Message Safety Monitor",
+  "version": "1.0",
+  "description": "Monitors sent messages for sensitive information",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://localhost:5123/*",
+    "https://x.com/*",
+    "https://repo-ecaf.onrender.com/*",
+    "https://web.whatsapp.com/*"
+    
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "all_frames": true
     }
+  ],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
   }
+}
