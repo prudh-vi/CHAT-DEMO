@@ -44,7 +44,6 @@ The diagram above illustrates the basic workflow of SafSoc:
 3. OpenAI API analyzes the message content
 4. If safe, no red message is displayed
 5. If unsafe, a red warning popup appears with feedback and suggestions
-6. User can edit and resubmit the message
 
 
 ## 🛠️ Technical Architecture
@@ -53,7 +52,6 @@ The diagram above illustrates the basic workflow of SafSoc:
 - Modern React with Hooks
 - Tailwind CSS for responsive design
 - ShadcnUI components for consistent UI
-- WebSocket for real-time updates
 
 ### Backend (Express.js)
 - RESTful API architecture
@@ -168,7 +166,3 @@ The application implements comprehensive error handling:
 
 - OpenAI team for their powerful API
 - The React and Express.js communities
-- All contributors and testers
-
----
-Made with ❤️ by [Prudhvi](https://github.com/prudh-vi)
