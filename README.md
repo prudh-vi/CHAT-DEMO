@@ -103,8 +103,7 @@ npm run dev
 1. Open Chrome/Firefox
 2. Navigate to Extensions
 3. Enable Developer Mode
-4. Load unpacked extension from `/extension` directory
-5. [Extension Source](https://github.com/prudh-vi/Safsoc/tree/main/extension)
+4. Load unpacked extension from `/extension` directory or click on [Extension Source](https://github.com/prudh-vi/Safsoc/tree/main/extension)
 
 ## 📚 API Documentation
 
