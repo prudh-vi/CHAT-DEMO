@@ -29,7 +29,7 @@ https://github.com/user-attachments/assets/cbf89b45-d804-4a21-9f26-6910a1a3daa5
 - **Clear Chat**: Option to clear chat history
 
 ### Browser Extension Features
-- **Universal Compatibility**: Works across all major websites
+- **Universal Compatibility**: Works across all major websites(at present it works only on X,LinkedIn,Safsoc)
 - **Context-aware Analysis**: Considers website context when evaluating messages
 - **Quick Toggle**: Easily enable/disable the extension as needed
 - **Seamless Integration**: Works naturally with existing website interfaces
