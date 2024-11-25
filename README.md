@@ -32,6 +32,7 @@ https://github.com/user-attachments/assets/cbf89b45-d804-4a21-9f26-6910a1a3daa5
 - **Universal Compatibility**: Works across all major websites (at present it works only on X,LinkedIn,Safsoc)
 - **Context-aware Analysis**: Considers website context when evaluating messages
 - **Seamless Integration**: Works naturally with existing website interfaces
+- **Detection**: It detects the text if we click on enter from keyboard
 
 ## 🔄 Workflow
 
