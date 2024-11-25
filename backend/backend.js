@@ -2,18 +2,13 @@ import express from 'express';
 import OpenAI from 'openai';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import dotenv from 'dotenv';
 
-// Load environment variables
-dotenv.config();
-
-// Initialize OpenAI with API key from environment variables
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
 const app = express();
-const port = process.env.PORT || 5123;
+const port = 5123;
 
 // Store chat history and messages
 let chatHistory = [];
@@ -35,6 +30,11 @@ app.get('/api/messages', (req, res) => {
     messages: newMessages,
     lastMessageId: lastMessageId
   });
+});
+app.delete('/api/messages/clear', (req, res) => {
+  // Clear server-side chat history logic
+  chatHistory = []; // Example: Reset chat history
+  res.status(200).send({ message: 'Chat history cleared' });
 });
 
 // Send message endpoint
@@ -76,10 +76,11 @@ async function analyzeSafety(message) {
       "content": `You are a chat safety monitor. Your tasks:
         1. Analyze messages for personal information (names, addresses, phone numbers, etc.)
         2. Detect sensitive data (financial details, passwords)
-        3. Identify unsafe sharing practices
-        4. Flag potentially harmful content
-        5. If message is safe, respond with "SAFE"
-        6. If unsafe, provide a brief specific warning about what information should not be shared`
+        3. Detect bullying or put downing others by using vulgar or bad words
+        4. Identify unsafe sharing practices
+        5. Flag potentially harmful content
+        6. If message is safe, respond with "SAFE"
+        7. If unsafe, provide a brief specific warning about what information should not be shared and suggestions`
     },
     {
       "role": "user",
@@ -89,10 +90,10 @@ async function analyzeSafety(message) {
 
   try {
     const chat = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-4o-mini",
       messages: messages,
-      temperature: 0.3,
-      max_tokens: 150,
+      temperature: 0.3, // Lower temperature for more consistent safety checking
+      max_tokens: 150, // Shorter responses for warnings
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
@@ -107,5 +108,5 @@ async function analyzeSafety(message) {
 }
 
 app.listen(port, () => {
-  console.log("Chat Safety Monitor Server")
-})
+  console.log("Chat Safety Monitor Server started on port", port);
+});
