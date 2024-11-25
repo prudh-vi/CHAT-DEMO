@@ -155,7 +155,3 @@ The application implements comprehensive error handling:
 - Server errors
 - Safety check failures
 
-## 👥 Acknowledgments
-
-- OpenAI
-- The React and Express.js communities
